@@ -1,0 +1,115 @@
+Run started: Sat 07/11/2026 13:39:42.70 
+Results dir: D:\Results\batch_20260711_133942  
+ 
+ 
+[TEST 1/4] test_default_paths.py 
+============================= test session starts =============================
+platform win32 -- Python 3.11.15, pytest-9.0.3, pluggy-1.6.0 -- C:\Users\andre\anaconda3\envs\backtesting\python.exe
+cachedir: .pytest_cache
+rootdir: C:\Users\andre\Desktop\Mastercode\Backtesting\NewBacktesting
+configfile: pyproject.toml
+plugins: anyio-4.13.0
+collecting ... collected 0 items / 1 error
+
+=================================== ERRORS ====================================
+________________ ERROR collecting tests/test_default_paths.py _________________
+ImportError while importing test module 'C:\Users\andre\Desktop\Mastercode\Backtesting\NewBacktesting\tests\test_default_paths.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+..\..\..\..\anaconda3\envs\backtesting\Lib\importlib\__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests\test_default_paths.py:4: in <module>
+    from backtest.config import get_default_data_dir, get_default_results_dir, get_default_strategies_dir
+E   ModuleNotFoundError: No module named 'backtest.config'
+=========================== short test summary info ===========================
+ERROR tests/test_default_paths.py
+!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!
+============================== 1 error in 0.11s ===============================
+ 
+[TEST 2/4] test_strategy_migration.py 
+============================= test session starts =============================
+platform win32 -- Python 3.11.15, pytest-9.0.3, pluggy-1.6.0 -- C:\Users\andre\anaconda3\envs\backtesting\python.exe
+cachedir: .pytest_cache
+rootdir: C:\Users\andre\Desktop\Mastercode\Backtesting\NewBacktesting
+configfile: pyproject.toml
+plugins: anyio-4.13.0
+collecting ... collected 0 items / 1 error
+
+=================================== ERRORS ====================================
+______________ ERROR collecting tests/test_strategy_migration.py ______________
+ImportError while importing test module 'C:\Users\andre\Desktop\Mastercode\Backtesting\NewBacktesting\tests\test_strategy_migration.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+..\..\..\..\anaconda3\envs\backtesting\Lib\importlib\__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests\test_strategy_migration.py:4: in <module>
+    from strategies.trend_following import EMACrossover, SMACrossover
+E   ImportError: cannot import name 'EMACrossover' from 'strategies.trend_following' (C:\Users\andre\Desktop\Mastercode\Backtesting\NewBacktesting\strategies\trend_following\__init__.py)
+------------------------------- Captured stdout -------------------------------
+
+=== Backtest Summary Statistics ===
+Total Assets Tested: 0
+Average Return: nan%
+Median Return: nan%
+=========================== short test summary info ===========================
+ERROR tests/test_strategy_migration.py
+!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!
+============================== 1 error in 2.56s ===============================
+ 
+[TEST 3/4] test_new_strategy_folders.py 
+============================= test session starts =============================
+platform win32 -- Python 3.11.15, pytest-9.0.3, pluggy-1.6.0 -- C:\Users\andre\anaconda3\envs\backtesting\python.exe
+cachedir: .pytest_cache
+rootdir: C:\Users\andre\Desktop\Mastercode\Backtesting\NewBacktesting
+configfile: pyproject.toml
+plugins: anyio-4.13.0
+collecting ... collected 0 items / 1 error
+
+=================================== ERRORS ====================================
+_____________ ERROR collecting tests/test_new_strategy_folders.py _____________
+ImportError while importing test module 'C:\Users\andre\Desktop\Mastercode\Backtesting\NewBacktesting\tests\test_new_strategy_folders.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+..\..\..\..\anaconda3\envs\backtesting\Lib\importlib\__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests\test_new_strategy_folders.py:5: in <module>
+    from strategies.breakout import BreakoutMomentumBand, BreakoutRetest, BreakoutVolumeSpike
+E   ImportError: cannot import name 'BreakoutMomentumBand' from 'strategies.breakout' (C:\Users\andre\Desktop\Mastercode\Backtesting\NewBacktesting\strategies\breakout\__init__.py)
+------------------------------- Captured stdout -------------------------------
+
+=== Backtest Summary Statistics ===
+Total Assets Tested: 0
+Average Return: nan%
+Median Return: nan%
+=========================== short test summary info ===========================
+ERROR tests/test_new_strategy_folders.py
+!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!
+============================== 1 error in 2.46s ===============================
+ 
+[TEST 4/4] test_batch_runner.py 
+============================= test session starts =============================
+platform win32 -- Python 3.11.15, pytest-9.0.3, pluggy-1.6.0 -- C:\Users\andre\anaconda3\envs\backtesting\python.exe
+cachedir: .pytest_cache
+rootdir: C:\Users\andre\Desktop\Mastercode\Backtesting\NewBacktesting
+configfile: pyproject.toml
+plugins: anyio-4.13.0
+collecting ... collected 0 items / 1 error
+
+=================================== ERRORS ====================================
+_________________ ERROR collecting tests/test_batch_runner.py _________________
+ImportError while importing test module 'C:\Users\andre\Desktop\Mastercode\Backtesting\NewBacktesting\tests\test_batch_runner.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+..\..\..\..\anaconda3\envs\backtesting\Lib\importlib\__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests\test_batch_runner.py:4: in <module>
+    from backtest.batch_runner import BatchBacktestRunner
+E   ModuleNotFoundError: No module named 'backtest.batch_runner'
+=========================== short test summary info ===========================
+ERROR tests/test_batch_runner.py
+!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!
+============================== 1 error in 0.11s ===============================

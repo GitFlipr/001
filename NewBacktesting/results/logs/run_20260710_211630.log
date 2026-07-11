@@ -1,0 +1,56 @@
+Run started: Fri 07/10/2026 21:16:30.85 
+Results dir: D:\Results\batch_20260710_211630  
+ 
+ 
+[TEST 1/4] test_default_paths.py 
+============================= test session starts =============================
+platform win32 -- Python 3.11.15, pytest-9.0.3, pluggy-1.6.0 -- C:\Users\andre\anaconda3\envs\backtesting\python.exe
+cachedir: .pytest_cache
+rootdir: C:\Users\andre\Desktop\Mastercode\Backtesting\NewBacktesting
+configfile: pyproject.toml
+plugins: anyio-4.13.0
+collecting ... collected 1 item
+
+tests/test_default_paths.py::DefaultPathConfigurationTest::test_default_paths_use_project_locations PASSED [100%]
+
+============================== 1 passed in 1.19s ==============================
+ 
+[TEST 2/4] test_strategy_migration.py 
+============================= test session starts =============================
+platform win32 -- Python 3.11.15, pytest-9.0.3, pluggy-1.6.0 -- C:\Users\andre\anaconda3\envs\backtesting\python.exe
+cachedir: .pytest_cache
+rootdir: C:\Users\andre\Desktop\Mastercode\Backtesting\NewBacktesting
+configfile: pyproject.toml
+plugins: anyio-4.13.0
+collecting ... collected 1 item
+
+tests/test_strategy_migration.py::test_migrated_strategies_generate_signals PASSED [100%]
+
+============================== 1 passed in 2.31s ==============================
+ 
+[TEST 3/4] test_new_strategy_folders.py 
+============================= test session starts =============================
+platform win32 -- Python 3.11.15, pytest-9.0.3, pluggy-1.6.0 -- C:\Users\andre\anaconda3\envs\backtesting\python.exe
+cachedir: .pytest_cache
+rootdir: C:\Users\andre\Desktop\Mastercode\Backtesting\NewBacktesting
+configfile: pyproject.toml
+plugins: anyio-4.13.0
+collecting ... collected 1 item
+
+tests/test_new_strategy_folders.py::NewStrategyFoldersTest::test_new_strategy_classes_generate_signals 
+tests/test_new_strategy_folders.py::NewStrategyFoldersTest::test_new_strategy_classes_generate_signals PASSED [100%]
+
+==================== 1 passed, 42 subtests passed in 2.31s ====================
+ 
+[TEST 4/4] test_batch_runner.py 
+============================= test session starts =============================
+platform win32 -- Python 3.11.15, pytest-9.0.3, pluggy-1.6.0 -- C:\Users\andre\anaconda3\envs\backtesting\python.exe
+cachedir: .pytest_cache
+rootdir: C:\Users\andre\Desktop\Mastercode\Backtesting\NewBacktesting
+configfile: pyproject.toml
+plugins: anyio-4.13.0
+collecting ... collected 1 item
+
+tests/test_batch_runner.py::BatchBacktestRunnerTest::test_runner_discovers_files_and_strategies PASSED [100%]
+
+============================== 1 passed in 2.38s ==============================
