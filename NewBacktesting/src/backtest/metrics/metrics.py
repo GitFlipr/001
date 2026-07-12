@@ -120,23 +120,22 @@ class Metrics:
         return np.mean(drawdowns[drawdowns < 0]) if len(drawdowns[drawdowns < 0]) > 0 else 0.0
 
     def max_drawdown_duration(self) -> int:
-        """Calculate maximum drawdown duration in bars"""
-        # Find the longest period
+        """Calculate maximum drawdown duration in bars using vectorized operations"""
+        # Find the longest period using vectorized approach
         rolling_max = self.equity_curve.cummax()
-        under_water = self.equity_curve < rolling_max
-        # Calculate durations
-        durations = []
-        current_duration = 0
-        for is_under in under_water:
-            if is_under:
-                current_duration += 1
-            else:
-                if current_duration > 0:
-                    durations.append(current_duration)
-                    current_duration = 0
-        if current_duration > 0:
-            durations.append(current_duration)
-        return max(durations) if durations else 0
+        under_water = (self.equity_curve < rolling_max).astype(int)
+        
+        # Use groupby to find consecutive sequences
+        if under_water.sum() == 0:
+            return 0
+            
+        # Calculate run lengths using diff and cumsum
+        changes = under_water.diff().fillna(under_water.iloc[0])
+        group_ids = changes.abs().cumsum()
+        
+        # Get max duration where under_water is True
+        durations = under_water.groupby(group_ids).sum()
+        return int(durations.max()) if len(durations) > 0 else 0
 
     def calmar_ratio(self) -> float:
         """Calculate Calmar ratio"""

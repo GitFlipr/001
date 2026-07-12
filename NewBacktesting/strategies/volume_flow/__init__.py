@@ -1,19 +1,6 @@
-"""Auto-migrated strategies — volume flow."""
-from importlib import import_module
+"""Volume Flow Strategies Registry"""
+from .vwma_volume import VWMAVolumeFlow
 
-_MODULES = [
-    "new_volume_flow_strategies",
+__all__ = [
+    'VWMAVolumeFlow',
 ]
-
-for module_name in _MODULES:
-    try:
-        module = import_module(f".{module_name}", __name__)
-    except Exception:
-        continue
-    globals().update({name: getattr(module, name) for name in dir(module) if not name.startswith("_")})
-
-__all__ = sorted({
-    name for name in globals()
-    if not name.startswith("_")
-    and name not in {"import_module", "module", "module_name", "_MODULES"}
-})

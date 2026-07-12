@@ -152,7 +152,7 @@ class Backtest:
 
     def _extract_trades(self, df: pd.DataFrame) -> list[dict]:
         """
-        Extract individual trades from backtest data
+        Extract individual trades from backtest data using vectorized operations
         
         Args:
             df: DataFrame with backtest results
@@ -160,21 +160,27 @@ class Backtest:
         Returns:
             List of trade dictionaries
         """
+        # Find entry and exit points using vectorized operations
+        position_change = df["position_change"].values
+        position = df["position"].values
+        trade_prices = df["trade_price"].values
+        indices = df.index
+        
         trades = []
         current_position = 0
         entry_price = 0
-        entry_date = None
+        entry_idx = None
         
-        for idx, row in df.iterrows():
-            if current_position == 0 and row["position_change"] != 0:
+        for i in range(len(df)):
+            if current_position == 0 and position_change[i] != 0:
                 # Enter position
-                current_position = row["position"]
-                entry_price = row["trade_price"]
-                entry_date = idx
-            elif current_position != 0 and row["position_change"] != 0:
+                current_position = position[i]
+                entry_price = trade_prices[i]
+                entry_idx = i
+            elif current_position != 0 and position_change[i] != 0:
                 # Exit position
-                exit_price = row["trade_price"]
-                exit_date = idx
+                exit_price = trade_prices[i]
+                exit_idx = i
                 
                 if current_position > 0:
                     # Long trade
@@ -184,18 +190,18 @@ class Backtest:
                     profit_pct = (entry_price - exit_price) / entry_price
                 
                 trades.append({
-                    "entry_date": entry_date,
-                    "exit_date": exit_date,
+                    "entry_date": indices[entry_idx],
+                    "exit_date": indices[exit_idx],
                     "entry_price": entry_price,
                     "exit_price": exit_price,
                     "position": current_position,
                     "profit_pct": profit_pct,
-                    "return_pct": profit_pct,  # Add for metrics compatibility
+                    "return_pct": profit_pct,
                     "profit": profit_pct * self.initial_capital
                 })
                 
                 current_position = 0
                 entry_price = 0
-                entry_date = None
+                entry_idx = None
         
         return trades
